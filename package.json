@@ -1,0 +1,24 @@
+{
+  "name": "test-automation-assessment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ghada-1992/test-automation-assessment.git"
+  },
+  "keywords": [],
+  "author": "Ghada AYARI",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ghada-1992/test-automation-assessment/issues"
+  },
+  "homepage": "https://github.com/Ghada-1992/test-automation-assessment#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.21.1",
+    "playwright": "^1.21.1"
+  }
+}
