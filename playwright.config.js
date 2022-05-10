@@ -1,6 +1,4 @@
 // import { PlaywrightTestConfig } from '@playwright/test';
-const { devices } = require('@playwright/test');
-
 const config = {
     timeout: 60000,
     use: {
