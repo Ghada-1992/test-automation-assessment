@@ -53,7 +53,7 @@ describe('Authentication Tests', () => {
             'Welcome to your account. Here you can manage all of your personal information and orders.',
         );
     });
-    it.only('Should be able to login with correct credentials', async () => {
+    it('Should be able to login with correct credentials', async () => {
         await authenticationPage.enterRegisteredEmail('test-gayari@gmail.com');
         await authenticationPage.enterRegisteredPassword('test_password');
         await authenticationPage.clickSignIn()
