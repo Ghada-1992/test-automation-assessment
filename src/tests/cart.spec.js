@@ -11,7 +11,7 @@ const MyAccountMenuPage = require('../pages/my-account-menu.page');
 const WomenNavigationPage = require('../pages/women-navigation-page');
 const LayerCartPage = require('../pages/layer-cart.page');
 
-describe('Authentication Tests', () => {
+describe('Cart Tests', () => {
     beforeEach(async () => {
         context = await browser.newContext();
         page = await context.newPage();
@@ -33,12 +33,13 @@ describe('Authentication Tests', () => {
         await context.close();
     });
 
-    it('Should add a product to the cart', async () => {
+    it.only('Should add a product to the cart', async () => {
         await myAccountMenuPage.accessWomenSection();
         await expect(page.locator(myAccountMenuPage.shoppingCartQuantity)).toContainText('0');
+        await womenNavigationPage.hoverProductImage(1);
         await womenNavigationPage.clickAddToCart(1);
         await expect(page.locator(layerCartPage.pageHeading)).toContainText(
-            'Product successfully added to your shopping cart',
+            'Product successfully added to your shopping cart'
         );
         await layerCartPage.closeWindow();
         await expect(page.locator(myAccountMenuPage.shoppingCartQuantity)).toContainText('1');
