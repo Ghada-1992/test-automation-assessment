@@ -31,5 +31,10 @@ class AuthenticationPage extends BasePage {
     async clickSignIn() {
         await this.page.click(this.signInButton);
     }
+
+    async signIn(registeredEmail, registeredPassword) {
+        await this.enterRegisteredEmail(registeredEmail);
+        await this.enterRegisteredPassword(registeredPassword);
+    }
 }
 module.exports = AuthenticationPage;
