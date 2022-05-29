@@ -2,7 +2,7 @@ module.exports = {
     verbose: true,
     preset: 'jest-playwright-preset',
     testPathIgnorePatterns: ['/node_modules/', 'lib'],
-    testMatch: ['**/__tests__/**/*.+(ts|js)', '**/?(*.)+(spec|test).+(ts|js)'],
+    testMatch: ['**/tests/**/*.+(ts|js)', '**/?(*.)+(spec|test).+(ts|js)'],
     testTimeout: 60 * 1000,
     reporters: [
         'default',
