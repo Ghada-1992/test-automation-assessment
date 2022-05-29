@@ -1,14 +1,15 @@
-version: 2.1
+version: 2
 jobs:
   build:
     docker:
       - image: mcr.microsoft.com/playwright:v1.22.0-focal
     steps:
-      - checkout
-      - run:
-          command: npm ci
-      - run:
-          command: npm test
+    - checkout
+    - run:
+        name: Check Scripts
+        command: |
+          npm ci
+          npm test
     post-steps:
       - store_artifacts:
-          path: "**/reports/**"
+        path: "**/reports/**"
