@@ -132,7 +132,7 @@ class CreateAccountPage extends BasePage {
     }
 
     async selectAddrState(addressState) {
-        await this.page.selectOption(this.addressState, { label: addressState });
+        await this.page.selectOption(this.addressState, { 'label': addressState });
     }
 
     async enterAddrPostcode(addressPostcode) {
