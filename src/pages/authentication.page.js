@@ -9,7 +9,7 @@ class AuthenticationPage extends BasePage {
 
         this.registeredEmailField = '#email';
         this.registeredPasswordField = '#passwd';
-        this.signInButton = 'SubmitLogin';
+        this.signInButton = '#SubmitLogin';
     }
 
     async enterCreateEmail(createEmail) {
