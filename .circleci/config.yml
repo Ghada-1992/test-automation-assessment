@@ -6,7 +6,7 @@ jobs:
     steps:
     - checkout
     - run:
-        name: Check Scripts
+        name: Run Tests
         command: |
           npm ci
           npm test
