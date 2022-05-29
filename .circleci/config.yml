@@ -8,7 +8,7 @@ jobs:
     - run:
         name: Run Tests
         command: |
-          npm ci
+          npm install
           npm test
     post-steps:
       - store_artifacts:
