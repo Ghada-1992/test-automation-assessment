@@ -1,6 +1,5 @@
 const { expect } = require('@playwright/test');
 var randomEmail = require('random-email');
-require('dotenv').config();
 
 const BasePage = require('../pages/base.page');
 const AuthenticationPage = require('../pages/authentication.page');
