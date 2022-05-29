@@ -1,24 +1,49 @@
 {
-  "name": "test-automation-assessment",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Ghada-1992/test-automation-assessment.git"
-  },
-  "keywords": [],
-  "author": "Ghada AYARI",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Ghada-1992/test-automation-assessment/issues"
-  },
-  "homepage": "https://github.com/Ghada-1992/test-automation-assessment#readme",
-  "devDependencies": {
-    "@playwright/test": "^1.21.1",
-    "playwright": "^1.21.1"
-  }
+    "name": "test-automation-assessment",
+    "version": "1.0.0",
+    "description": "Playwright e2e test framework.",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest --runInBand",
+        "test.watch": "jest --watchAll"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.(js|json|md)": [
+            "prettier --write"
+        ],
+        "*.js": [
+            "eslint --fix"
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Ghada-1992/test-automation-assessment.git"
+    },
+    "keywords": [
+        "jest",
+        "playwright",
+        "jest-playwright"
+    ],
+    "author": "Ghada Ayari",
+    "license": "ISC",
+    "devDependencies": {
+        "@playwright/test": "^1.21.1",
+        "eslint": "^8.14.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-jest": "^26.1.5",
+        "eslint-plugin-jest-playwright": "^0.7.1",
+        "eslint-plugin-playwright": "^0.8.0",
+        "husky": "^7.0.4",
+        "jest": "^27.3.1",
+        "jest-html-reporters": "^3.0.5",
+        "jest-playwright-preset": "^1.7.0",
+        "lint-staged": "^12.4.1",
+        "playwright": "^1.21.1",
+        "prettier": "^2.6.2"
+    }
 }
