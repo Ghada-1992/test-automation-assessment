@@ -16,7 +16,7 @@ class CreateAccountPage extends BasePage {
         this.dobMonths = '#months';
         this.uniformYears = '#uniform-years';
         this.dobYears = '#years';
-        this.signForNewsLetter = '#uniform-newsletter';
+        this.signUpForNewsLetter = '#newsletter';
         this.receiveOffers = '#uniform-option';
 
         this.addressFirstname = '#firstname';
@@ -37,6 +37,23 @@ class CreateAccountPage extends BasePage {
 
         this.submitAccount = '#submitAccount';
     }
+
+    // async fillPersonalInformation(args){
+    //     await this.selectGender(gender);
+    //     await this.enterFirstname(firstname)
+    //     await this.enterLastname(lastname)
+    //     await this.enterEmail(email)
+    //     await this.enterPassword(password)
+    //     await this.selectDayOfBirth(dobDays)
+    //     await this.selectMonthOfBirth(dobMonths)
+    //     await this.selectYearOfBirth(dobYears)
+    //     await this.checkSignUpForNews()
+    //     await this.enterAddressFirstname(addressFirstname)
+    //     await this.enterAddressLastname(addressLastname)
+    //     await this.enterAddressCompany(addressCompany)
+    //     await this.enterAddrAddress1(addressAddress1)
+    //     await this.
+    // }
 
     async selectGender(gender) {
         if (gender == 'F') {
@@ -63,22 +80,19 @@ class CreateAccountPage extends BasePage {
     }
 
     async selectDayOfBirth(dobDays) {
-        await page.click(this.uniformDays);
-        await page.selectOption(dropdown, { label: dobDays });
+        await page.selectOption(this.dobDays, { value: dobDays });
     }
 
     async selectMonthOfBirth(dobMonths) {
-        await page.click(this.uniformMonths);
-        await page.selectOption(dropdown, { label: dobMonths });
+        await page.selectOption(this.dobMonths, { value: dobMonths });
     }
 
     async selectYearOfBirth(dobYears) {
-        await page.click(this.uniformYears);
-        await page.selectOption(dropdown, { label: dobYears });
+        await page.selectOption(this.dobYears, { value: dobYears });
     }
 
-    async checkSignForNews() {
-        await this.page.check(this.signForNewsLetter);
+    async checkSignUpForNews() {
+        await this.page.check(this.signUpForNewsLetter);
     }
 
     async uncheckSignForNews() {
@@ -98,10 +112,10 @@ class CreateAccountPage extends BasePage {
     }
 
     async enterAddressLastname(addressLastname) {
-        await this.page.fill(this.addressFirstname, addressLastname);
+        await this.page.fill(this.addressLastname, addressLastname);
     }
 
-    async enterAddressLastname(addressCompany) {
+    async enterAddressCompany(addressCompany) {
         await this.page.fill(this.addressCompany, addressCompany);
     }
 
@@ -117,16 +131,16 @@ class CreateAccountPage extends BasePage {
         await this.page.fill(this.addressCity, addressCity);
     }
 
-    async enterAddrState(addressState) {
-        await this.page.fill(this.addressState, addressState);
+    async selectAddrState(addressState) {
+        await this.page.selectOption(this.addressState, { label: addressState });
     }
 
     async enterAddrPostcode(addressPostcode) {
         await this.page.fill(this.addressPostcode, addressPostcode);
     }
 
-    async enterAddrCountry(addressCountry) {
-        await this.page.fill(this.addressCountry, addressCountry);
+    async selectAddrCountry(addressCountry) {
+        await this.page.selectOption(this.addressCountry, { label: addressCountry });
     }
 
     async enterAddrOther(addressOther) {
