@@ -1,4 +1,5 @@
 const { expect } = require('@playwright/test');
+var randomEmail = require('random-email');
 const BasePage = require('../pages/base.page');
 const AuthenticationPage = require('../pages/authentication.page');
 const NavigationContainerPage = require('../pages/navigation-container.page');
@@ -24,7 +25,7 @@ describe('Account Tests', () => {
     });
 
     it.only('Should be able to create an account', async () => {
-        await authenticationPage.enterCreateEmail('test-panda-1001@gmail.com');
+        await authenticationPage.enterCreateEmail(randomEmail({ domain: 'gmail.com' }));
         await authenticationPage.submitCreateEmail();
         await createAccountPage.selectGender('F');
         await createAccountPage.enterFirstname('firstaname');
