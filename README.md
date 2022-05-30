@@ -24,3 +24,16 @@ An e2e testing framework in JavaScript developed using [Playwright](https://play
     ```
     npm test
     ```
+
+-   CI/CD :
+
+    - CI is set up using CircleCI 
+
+    - Config for the CI is defined in `.circleci/config.yml`.
+
+    - View the Builds for this repo @ https://circleci.com/gh/Ghada-1992/test-automation-assessment/tree/main ( **You need to be logged in to your own CircleCI account using your GitHub credentials to view this** )
+
+    - View Jest HTML Report under `Artifacts` tab of the Job run
+
+
+![Alt text](images/jest-html-report.png?raw=true "Report Artifacts")
