@@ -1,4 +1,6 @@
 const { expect } = require('@playwright/test');
+const text = require('../../resources/text.js');
+const testData = require('../../resources/test-data.json');
 
 const BasePage = require('../pages/base.page');
 const AuthenticationPage = require('../pages/authentication.page');
@@ -22,22 +24,22 @@ describe('Cart Tests', () => {
         myAccountMenuPage = new MyAccountMenuPage(page);
         womenNavigationPage = new WomenNavigationPage(page);
         layerCartPage = new LayerCartPage(page);
-        await basePage.navigate('http://automationpractice.com/index.php');
+        await basePage.navigate(testData.baseURL);
         await navigationContainerPage.clickSignIn();
-        await authenticationPage.signIn('test-gayari@gmail.com', 'test_password');
+        await authenticationPage.signIn(testData.testEmail, testData.testPassword);
     });
 
     afterEach(async () => {
         await context.close();
     });
 
-    it.only('Should add a product to the cart', async () => {
+    it('Should add a product to the cart', async () => {
         await myAccountMenuPage.accessWomenSection();
         await expect(page.locator(myAccountMenuPage.shoppingCartQuantity)).toContainText('0');
         await womenNavigationPage.hoverProductImage(1);
         await womenNavigationPage.clickAddToCart(1);
         await expect(page.locator(layerCartPage.pageHeading)).toContainText(
-            'Product successfully added to your shopping cart'
+            text.text_ProductSuccessfullyAddedMessage,
         );
         await layerCartPage.closeWindow();
         await expect(page.locator(myAccountMenuPage.shoppingCartQuantity)).toContainText('1');

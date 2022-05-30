@@ -1,5 +1,7 @@
 const { expect } = require('@playwright/test');
 var randomEmail = require('random-email');
+const text = require('../../resources/text.js');
+const testData = require('../../resources/test-data.json');
 
 const BasePage = require('../pages/base.page');
 const AuthenticationPage = require('../pages/authentication.page');
@@ -17,7 +19,7 @@ describe('Authentication Tests', () => {
         navigationContainerPage = new NavigationContainerPage(page);
         createAccountPage = new CreateAccountPage(page);
         customerAccountPage = new CustomerAccountPage(page);
-        await basePage.navigate('http://automationpractice.com/index.php');
+        await basePage.navigate(testData.baseURL);
         await navigationContainerPage.clickSignIn();
     });
 
@@ -48,17 +50,13 @@ describe('Authentication Tests', () => {
         await createAccountPage.selectAddrState('Texas');
         await createAccountPage.clickSubmitAccount();
         await expect(page.locator(customerAccountPage.pageHeading)).toContainText('My account');
-        await expect(page.locator(customerAccountPage.info)).toContainText(
-            'Welcome to your account. Here you can manage all of your personal information and orders.',
-        );
+        await expect(page.locator(customerAccountPage.info)).toContainText(text.text_WelcomeMessage);
     });
     it('Should be able to login with correct credentials', async () => {
-        await authenticationPage.enterRegisteredEmail('test-gayari@gmail.com');
-        await authenticationPage.enterRegisteredPassword('test_password');
-        await authenticationPage.clickSignIn()
+        await authenticationPage.enterRegisteredEmail(testData.testEmail);
+        await authenticationPage.enterRegisteredPassword(testData.testPassword);
+        await authenticationPage.clickSignIn();
         await expect(page.locator(customerAccountPage.pageHeading)).toContainText('My account');
-        await expect(page.locator(customerAccountPage.info)).toContainText(
-            'Welcome to your account. Here you can manage all of your personal information and orders.',
-        );
+        await expect(page.locator(customerAccountPage.info)).toContainText(text.text_WelcomeMessage);
     });
 });

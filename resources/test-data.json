@@ -1,0 +1,5 @@
+{
+    "baseURL": "http://automationpractice.com/index.php",
+    "testEmail": "test-gayari@gmail.com",
+    "testPassword": "test_password"
+}
