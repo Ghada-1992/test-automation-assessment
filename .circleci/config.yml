@@ -12,4 +12,4 @@ jobs:
           npm test
     post-steps:
       - store_artifacts:
-        path: "**/reports/**"
+        path: /reports/

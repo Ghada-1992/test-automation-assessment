@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/Ghada-1992/test-automation-assessment/tree/main.svg?style=svg&circle-token=42b2c4f0d153e6f18970bacd1b075f4455272c73)](https://circleci.com/gh/Ghada-1992/test-automation-assessment/tree/main)
+
 # 🎭 E2E Test Automation Framework - Playwright
 
 An e2e testing framework in JavaScript developed using [Playwright](https://playwright.dev/)
