@@ -10,6 +10,6 @@ jobs:
         command: |
           npm install
           npm test
-    post-steps:
-      - store_artifacts:
-        path: /reports/
+
+    - store_artifacts:
+          path: reports
